@@ -18,6 +18,7 @@ import nl from './locale/nl.json';
 import fi from './locale/fi.json';
 import it from './locale/it.json';
 import id from './locale/id.json';
+import zhcn from './locale/zhcn.json';
 import zhtw from './locale/zhtw.json';
 import ru from './locale/ru.json';
 
@@ -43,6 +44,7 @@ export const resources = {
   fi,
   it,
   id,
+  zhcn,
   zhtw,
   ru,
 } as const;
@@ -53,7 +55,7 @@ const missingKeyHandler = (
   key: string,
   fallbackValue: string,
 ) => {
-  if (process.env.NODE_ENV !== 'development') return;
+  if (!import.meta.env.DEV) return;
   console.error(
     `!! TRANSLATION KEY NOT FOUND FOR LANGAUGE "${lng}", KEY "${key}". RENDERED ${fallbackValue} INSTEAD"" !!`,
   );
